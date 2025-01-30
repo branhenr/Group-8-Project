@@ -7,7 +7,7 @@
 > Brandon Vazquez-Henriquez, Elizabeth Sprat
 
 ## Description 
-> [App name] is a web app designed for people to be able to view recipes posted by chefs.
+> Fork and Share is a web app designed for people to be able to view recipes posted by chefs.
 > Users can browse through the different recipes made by chefs and follow the recipe themselves. If they like the recipe so much, they are
 > able to leave a like on it and a review. 
 >
