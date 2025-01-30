@@ -1,7 +1,7 @@
 # Group-8-Project
 
 ## Title
-> Your project title
+> Recipe App
 
 ## Team Members
 > Brandon Vazquez-Henriquez, Elizabeth Sprat
@@ -14,16 +14,16 @@
 ## App Functions
 1. Customer (the user with the customer role):
     1. Create/modify customer profile - how will your app do this?.
-    2. View available services - .
+    2. View available services - View different recipes
     3. Subscribe to available services - .
-    4. Write reviews for subscribed services - .
+    4. Write reviews for subscribed services - Leave reviews of recipes.
 2. Provider (the user with the provider role):
     1. Create/modify/remove provider profile - .
-    2. Create services - .
+    2. Create services - Post recipes.
     3. View customer statistics -  .
     4. Reply to reviews - .
 3. SysAdmin (the user with the admin role if applicable):
     1. Manage user access - .
-    2. Moderate services - .
-    3. Moderate reviews - .
+    2. Moderate services - Remove recipes.
+    3. Moderate reviews - Remove reviews.
     4. View usage statistics - .
