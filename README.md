@@ -1,7 +1,7 @@
 # Group-8-Project
 
 ## Title
-> [App Name]
+> Fork and Share
 
 ## Team Members
 > Brandon Vazquez-Henriquez, Elizabeth Sprat
