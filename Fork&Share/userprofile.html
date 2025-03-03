@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> 
+</head>
+
+<body>
+    <header class="text-center p-3">
+        <h1>Fork and Share</h1>
+    </header>
+
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #414b3b;">
+        <a class="navbar-brand" href="index.html">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Recipes </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Log out</a>
+                </li>
+            </ul>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search saved recipes">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+
+
+    <div class="container mt-4">
+        <div class="text-center">
+            <img src="images/homechefavi.jpg" class="profile-pic" alt="User profile picture">
+            <h2 class="username">@username</h2>
+            <p class="about-me">Food lover | Recipe Explorer | Home Chef</p>
+            <button class="btn btn-primary btn-sm">Edit Profile</button>
+        </div>
+
+        <hr>
+
+        <!-- Saved Recipes Section -->
+        <h3 class="Saved-recipes">Saved Recipes</h3>
+        <div class="card-deck">
+            <div class="card">
+                <img class="card-img-top" src="images/cookies.jpg" alt="Cookies">
+                <div class="card-body">
+                    <h5 class="card-title">Granny's Chocolate Cookies</h5>
+                    <p class="card-text">Grandma's homemade cookies!</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="images/lamb.jpg" alt="Lamb">
+                <div class="card-body">
+                    <h5 class="card-title">Lamb Dinner</h5>
+                    <p class="card-text">Lamb dinner served over mashed potatoes with a side!</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="images/alfredo.jpg" alt="Alfredo">
+                <div class="card-body">
+                    <h5 class="card-title">Steak Alfredo </h5>
+                    <p class="card-type">Alredo served hot!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/js/bootstrap.min.js"></script>
+</body>
+</html>

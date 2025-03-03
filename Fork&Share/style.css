@@ -1,4 +1,4 @@
- HEAD
+
 .profile-pic{
     border-radius: 400px;
     height: 200px;
@@ -28,18 +28,18 @@
     border: 1px solid black;
   }
 
-<<<<<<< HEAD
+
 .follower {
     font-weight: bolder;
     font-size: x-large;
 }
 
 p {
-    font-family: Georgia, 'Times New Roman', Times, serif
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 h1{
-    font-family: Georgia, 'Times New Roman', Times, serif
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 h5{
@@ -50,12 +50,12 @@ h5{
 .profile-name{
     font-weight: 200;
 }
-=======
+
 header{
 background-color: #414b3b;
 font-size: x-large;
 text-align: center;
-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
 
@@ -74,5 +74,3 @@ body {
     flex-direction: column;
    
 }
-
->>>>>>> 184f091 (adding sign-up userprfile)
