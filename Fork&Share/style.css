@@ -1,3 +1,4 @@
+ HEAD
 .profile-pic{
     border-radius: 400px;
     height: 200px;
@@ -27,6 +28,7 @@
     border: 1px solid black;
   }
 
+<<<<<<< HEAD
 .follower {
     font-weight: bolder;
     font-size: x-large;
@@ -48,3 +50,29 @@ h5{
 .profile-name{
     font-weight: 200;
 }
+=======
+header{
+background-color: #414b3b;
+font-size: x-large;
+text-align: center;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+
+}
+
+
+
+
+body {
+
+
+
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff9f3;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+>>>>>>> 184f091 (adding sign-up userprfile)
