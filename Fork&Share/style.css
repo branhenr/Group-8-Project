@@ -7,6 +7,7 @@
 .username{
     font-weight: bold;
     text-indent: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .foodcard{
@@ -25,3 +26,25 @@
 .line {
     border: 1px solid black;
   }
+
+.follower {
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+p {
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+h1{
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+h5{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
+
+.profile-name{
+    font-weight: 200;
+}
