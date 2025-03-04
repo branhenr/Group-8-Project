@@ -30,8 +30,17 @@
 
 
 .follower {
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bolder;
-    font-size: x-large;
+    font-size: large;
+    padding-left: 30px;
+}
+
+.chef-name {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 80px;
+    font-size: xx-large;
+    font-weight: bold;
 }
 
 p {
