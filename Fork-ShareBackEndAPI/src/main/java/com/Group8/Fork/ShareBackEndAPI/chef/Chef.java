@@ -1,5 +1,6 @@
 package com.Group8.Fork.ShareBackEndAPI.chef;
 
+import com.Group8.Fork.ShareBackEndAPI.recipe.Recipe;
 import jakarta.persistence.*;
 
 import java.util.List;

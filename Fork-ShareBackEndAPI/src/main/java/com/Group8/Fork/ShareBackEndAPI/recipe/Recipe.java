@@ -11,11 +11,11 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int recipeId;
 
-    private int prepTime;
-
     private String name;
 
-    private String foodType;
+    private int prepTime;
+
+    private String description;
 
     private String diet;
 
@@ -23,27 +23,20 @@ public class Recipe {
     @JoinColumn(name = "chefId")
     private Chef chef;
 
-    public Recipe(int recipeId, int prepTime, String name, String foodType, String diet){
-        this.recipeId = recipeId;
-        this.prepTime = prepTime;
-        this.name = name;
-        this.foodType = foodType;
-        this.diet = diet;
-    }
 
-    public Recipe(int recipeId, int prepTime, String name, String foodType, String diet, Chef chef){
+    public Recipe(int recipeId, String name, int prepTime, String description, String diet, Chef chef){
         this.recipeId = recipeId;
-        this.prepTime = prepTime;
         this.name = name;
-        this.foodType = foodType;
+        this.prepTime = prepTime;
+        this.description = description;
         this.diet = diet;
         this.chef = chef;
     }
 
-    public Recipe( int prepTime, String name, String foodType, String diet, Chef chef){
-        this.prepTime = prepTime;
+    public Recipe(String name, int prepTime, String description, String diet, Chef chef){
         this.name = name;
-        this.foodType = foodType;
+        this.prepTime = prepTime;
+        this.description = description;
         this.diet = diet;
         this.chef = chef;
     }
@@ -65,8 +58,8 @@ public class Recipe {
         return name;
     }
 
-    public String getFoodType(){
-        return foodType;
+    public String getDescription(){
+        return description;
     }
 
     public String getDiet(){
@@ -90,8 +83,8 @@ public class Recipe {
         this.name = name;
     }
 
-    public void setFoodType(String foodType){
-        this.foodType = foodType;
+    public void setDescription(String description){
+        this.description = description;
     }
 
     public void setDiet(String diet){
@@ -100,18 +93,6 @@ public class Recipe {
 
     public void setChef(Chef chef) {
         this.chef = chef;
-    }
-
-    @Override
-    public String toString(){
-        return "Recipes{" +
-                "recipeID = " + recipeId +
-                ", prepTime=" + prepTime +
-                ", name ='" + name + '\'' +
-                ", foodType ='" + foodType + '\'' +
-                ", diet ='" + diet + '\'' +
-                ", chef =" + chef +
-                '}';
     }
 
 }

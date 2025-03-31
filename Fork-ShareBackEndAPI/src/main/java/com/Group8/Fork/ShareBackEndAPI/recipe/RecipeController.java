@@ -23,10 +23,37 @@ public class RecipeController {
         return new ResponseEntity<>(recipeService.getAllRecipes(), HttpStatus.OK);
     }
 
+    //return a single recipe
+    @GetMapping("/{recipeId}")
+        public Object getOneRecipe(@PathVariable int recipeId){
+            return new ResponseEntity<>(recipeService.getRecipeById(recipeId), HttpStatus.OK);
+        }
+
+
+    //return all recipes by diet
+    @GetMapping("/diet/{diet}")
+    public Object getRecipesByDiet(@PathVariable String diet){
+        return new ResponseEntity<>(recipeService.getRecipesByDiet(diet), HttpStatus.OK);
+    }
+
     //creating a new recipes
     @PostMapping("/new")
-    public Object addNewRecipe(Recipe recipe){
+    public Object addNewRecipe(@RequestBody Recipe recipe){
         recipeService.addNewRecipe(recipe);
         return new ResponseEntity<>(recipeService.getAllRecipes(), HttpStatus.OK);
     }
+
+    //update an existing recipe
+    @PutMapping("/update/{recipeId}")
+    public Object updateRecipe(@PathVariable int recipeId, @RequestBody Recipe recipe){
+        recipeService.updateRecipe(recipeId, recipe);
+        return new ResponseEntity<>(recipeService.getRecipeById(recipeId), HttpStatus.OK);
+    }
+
+    //delete an existing recipe
+    @DeleteMapping("/delete/{recipeId}")
+        public Object deleteRecipeById(@PathVariable int recipeId){
+            recipeService.deleteRecipeById(recipeId);
+            return new ResponseEntity<>(recipeService.getAllRecipes(), HttpStatus.OK);
+        }
 }

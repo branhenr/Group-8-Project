@@ -32,7 +32,6 @@ public class ChefController {
     }
 
 
-
     //creating a new chef
     @PostMapping("/new")
     public Object addNewChef(@RequestBody Chef chef) {

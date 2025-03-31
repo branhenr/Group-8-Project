@@ -20,7 +20,24 @@ public class RecipeService {
         return recipeRepository.findAll();
     }
 
+    public Recipe getRecipeById(int recipeId){
+        return recipeRepository.findById(recipeId).orElse(null);
+    }
+
+    public List<Recipe> getRecipesByDiet(String diet){
+        return recipeRepository.getRecipesByDiet(diet);
+    }
+
     public void addNewRecipe(Recipe recipe){
         recipeRepository.save(recipe);
+    }
+
+    public void updateRecipe(int recipeId, Recipe recipe){
+        recipeRepository.save(recipe);
+    }
+
+
+    public void deleteRecipeById(int recipeId){
+        recipeRepository.deleteById(recipeId);
     }
 }
