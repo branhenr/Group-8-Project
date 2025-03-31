@@ -2,6 +2,8 @@ package com.Group8.Fork.ShareBackEndAPI.chef;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "chefs")
 public class Chef {
@@ -32,6 +34,8 @@ public class Chef {
     public Chef(){
 
     }
+
+    public Chef(int chefId) {this.chefId = chefId; }
 
     //getter methods
     public int getChefId(){

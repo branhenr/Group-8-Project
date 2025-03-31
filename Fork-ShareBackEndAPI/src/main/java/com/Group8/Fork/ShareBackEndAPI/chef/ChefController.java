@@ -25,6 +25,12 @@ public class ChefController {
         return new ResponseEntity<>(service.getChefById(chefId), HttpStatus.OK);
     }
 
+    //return chef by name
+    @GetMapping("/name")
+    public Object getChefsByName(@RequestParam(name = "search", defaultValue = "") String search){
+        return new ResponseEntity<>(service.getChefsByName(search), HttpStatus.OK);
+    }
+
 
 
     //creating a new chef

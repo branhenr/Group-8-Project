@@ -19,6 +19,10 @@ public class ChefService {
         return chefRepository.findById(chefId).orElse(null);
     }
 
+    public List<Chef> getChefsByName(String name){
+        return chefRepository.getChefsByName(name);
+    }
+
 
     //adding a new chef to database
     public void addNewChef(Chef chef){
