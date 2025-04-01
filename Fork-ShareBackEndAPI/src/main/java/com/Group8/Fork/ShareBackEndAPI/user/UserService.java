@@ -12,6 +12,7 @@ public class UserService {
 
     private UserRepository userRepository;
 
+
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
@@ -37,13 +38,16 @@ public class UserService {
         existing.setEmail(user.getEmail());
         existing.setPassword(user.getPassword());
 
+
         }
 
         // delete acc
 
     public void deleteUserById(int userID) {
-
+        userRepository.deleteByID(userID);
     }
+
+
 }
 
 
