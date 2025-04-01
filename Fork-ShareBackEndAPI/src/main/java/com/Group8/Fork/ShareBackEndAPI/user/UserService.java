@@ -9,6 +9,7 @@ import java.util.List;
 public class UserService {
 
     @Autowired
+
     private UserRepository userRepository;
 
     public List<User> getAllUsers() {

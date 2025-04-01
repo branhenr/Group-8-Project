@@ -6,6 +6,7 @@ import java.util.List;
 
 import java.util.List;
 
+
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer>{
     @Query(value = "SELECT * FROM users c WHERE c.username LIKE %?1%", nativeQuery = true)
