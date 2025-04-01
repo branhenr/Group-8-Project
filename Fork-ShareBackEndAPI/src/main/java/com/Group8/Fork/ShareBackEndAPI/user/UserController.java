@@ -53,17 +53,17 @@ public class UserController {
  }
 
  //save recipe
-    PostMapping("/{userID}/save-recipe/{recipeId}")
+    @PostMapping("/{userID}/save-recipe/{recipeId}")
     public ResponseEntity<String> saveRecipe(@PathVariable int userID, @PathVariable int recipeId) {
         service.saveRecipeForUser(userID, recipeId);
-        return new ResponseEntity<>(service.HttpStatus.OK);
+        return new ResponseEntity<>(service.getSavedRecipes() ,HttpStatus.OK);
     }
 
     //unsave recipe
     @DeleteMapping("/{userID}/unsave-recipe/{recipeId}")
     public ResponseEntity<String> unsaveRecipe (@PathVariable int userID, @PathVariable int recipeId) {
         service.unsaveRecipeForUser(userID, recipeId);
-        return new  ResponseEntity<>(HttpStatus.OK;
+        return new  ResponseEntity<>(HttpStatus.OK);
     }
 
     // view recipes

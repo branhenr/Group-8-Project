@@ -1,6 +1,10 @@
 package com.Group8.Fork.ShareBackEndAPI.user;
 
+import com.Group8.Fork.ShareBackEndAPI.recipe.Recipe;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users")

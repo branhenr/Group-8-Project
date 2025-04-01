@@ -1,5 +1,7 @@
 package com.Group8.Fork.ShareBackEndAPI.user;
 
+import com.Group8.Fork.ShareBackEndAPI.recipe.Recipe;
+import com.Group8.Fork.ShareBackEndAPI.recipe.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,8 +11,8 @@ import java.util.List;
 public class UserService {
 
     @Autowired
-
     private UserRepository userRepository;
+    @Autowired
     private RecipeRepository recipeRepository;
 
     public List<User> getAllUsers() {
@@ -44,7 +46,7 @@ public class UserService {
         // delete acc
 
     public void deleteUserById(int userID) {
-        userRepository.deleteByID(userID);
+        userRepository.deleteById(userID);
     }
 
 
@@ -70,5 +72,8 @@ public class UserService {
     }
 
 
+    public String getSavedRecipes() {
+        return null;
+    }
 }
 
