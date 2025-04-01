@@ -1,6 +1,7 @@
 package com.Group8.Fork.ShareBackEndAPI.recipe;
 
 import com.Group8.Fork.ShareBackEndAPI.chef.Chef;
+import com.Group8.Fork.ShareBackEndAPI.review.Review;
 import jakarta.persistence.*;
 
 @Entity

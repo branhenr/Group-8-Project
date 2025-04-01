@@ -33,7 +33,12 @@ public class RecipeService {
     }
 
     public void updateRecipe(int recipeId, Recipe recipe){
-        recipeRepository.save(recipe);
+        Recipe existing = getRecipeById(recipeId);
+        existing.setName(recipe.getName());
+        existing.setPrepTime(recipe.getPrepTime());
+        existing.setDescription(recipe.getDescription());
+        existing.setDiet(recipe.getDiet());
+        existing.setChef(recipe.getChef());
     }
 
 

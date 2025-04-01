@@ -40,14 +40,14 @@ public class RecipeController {
     @PostMapping("/new")
     public Object addNewRecipe(@RequestBody Recipe recipe){
         recipeService.addNewRecipe(recipe);
-        return new ResponseEntity<>(recipeService.getAllRecipes(), HttpStatus.OK);
+        return new ResponseEntity<>(recipeService.getAllRecipes(), HttpStatus.CREATED);
     }
 
     //update an existing recipe
     @PutMapping("/update/{recipeId}")
     public Object updateRecipe(@PathVariable int recipeId, @RequestBody Recipe recipe){
         recipeService.updateRecipe(recipeId, recipe);
-        return new ResponseEntity<>(recipeService.getRecipeById(recipeId), HttpStatus.OK);
+        return new ResponseEntity<>(recipeService.getRecipeById(recipeId), HttpStatus.CREATED);
     }
 
     //delete an existing recipe
