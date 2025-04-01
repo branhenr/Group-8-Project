@@ -51,4 +51,26 @@ public class UserController {
     service.deleteUserById(userID);
     return new ResponseEntity<>(service.getAllUsers(), HttpStatus.OK);
  }
+
+ //save recipe
+    PostMapping("/{userID}/save-recipe/{recipeId}")
+    public ResponseEntity<String> saveRecipe(@PathVariable int userID, @PathVariable int recipeId) {
+        service.saveRecipeForUser(userID, recipeId);
+        return new ResponseEntity<>(service.HttpStatus.OK);
+    }
+
+    //unsave recipe
+    @DeleteMapping("/{userID}/unsave-recipe/{recipeId}")
+    public ResponseEntity<String> unsaveRecipe (@PathVariable int userID, @PathVariable int recipeId) {
+        service.unsaveRecipeForUser(userID, recipeId);
+        return new  ResponseEntity<>(HttpStatus.OK;
+    }
+
+    // view recipes
+    @GetMapping ("/saved")
+    public Object getSavedRecipes(@RequestParam(name = "userID") int userID) {
+        return new ResponseEntity<>(service.getSavedRecipes(userID), HttpStatus.OK);
+    }
+
+
 }

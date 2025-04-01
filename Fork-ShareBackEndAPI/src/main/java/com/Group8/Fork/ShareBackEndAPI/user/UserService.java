@@ -11,7 +11,7 @@ public class UserService {
     @Autowired
 
     private UserRepository userRepository;
-
+    private RecipeRepository recipeRepository;
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
@@ -45,6 +45,28 @@ public class UserService {
 
     public void deleteUserById(int userID) {
         userRepository.deleteByID(userID);
+    }
+
+
+    //save recipe
+    public void saveRecipeForUser(int userID, int recipeId) {
+        User user = getUserByID(userID);
+        Recipe recipe = recipeRepository.findById(recipeId).orElseThrow();
+        user.saveRecipe(recipe);
+        userRepository.save(user);
+    }
+
+   //unsave recipe
+    public void unsaveRecipeForUser (int userID, int recipeId) {
+        User user = getUserByID(userID);
+        Recipe recipe = recipeRepository.findById(recipeId).orElseThrow();
+        user.unsaveRecipe(recipe);
+        userRepository.save(user);
+    }
+
+
+    public List<Recipe> getSavedRecipes(int userID) {
+        return getUserByID(userID).getSavedRecipes();
     }
 
 

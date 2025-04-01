@@ -11,7 +11,16 @@ public class User {
 
      private int userID;
 
-     private String username;
+    @ManyToMany
+    @JoinTable(
+            name = "user_savedRecipes",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "recipe_id")
+    )
+     private List<Recipe> savedRecipes = new ArrayList<>();
+
+
+    private String username;
      private String email;
      private String password;
 
@@ -41,10 +50,14 @@ public class User {
      public String getEmail() {
          return email;
      }
+     public List<Recipe> getSavedRecipes () {
+         return savedRecipes;
+     }
 
      public String getPassword() {
          return password;
      }
+
 
      // Setters
 
@@ -61,8 +74,21 @@ public class User {
 
     }
 
+
     public void setPassword (String password) {
          this.password = password;
+    }
+
+    public void setSavedRecipes(List<Recipe> savedRecipes) {
+         this.savedRecipes = savedRecipes;
+    }
+
+    public void saveRecipe (Recipe recipe) {
+         this.savedRecipes.add(recipe);
+    }
+
+    public void  unsaveRecipe(Recipe recipe) {
+         this.savedRecipes.remove(recipe);
     }
 
 }
