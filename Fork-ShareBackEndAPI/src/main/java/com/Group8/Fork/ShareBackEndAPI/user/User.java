@@ -1,14 +1,13 @@
 package com.Group8.Fork.ShareBackEndAPI.user;
 
-import jakarta.persistance.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "users")
-
 public class User {
 
      @Id
-     @GenerateValue(strategy = GenerationType.IDENTITY)
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
      private int userID;
 

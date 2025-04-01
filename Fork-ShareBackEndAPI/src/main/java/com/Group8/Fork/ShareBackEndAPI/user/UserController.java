@@ -27,9 +27,9 @@ public class UserController {
 
     //show by username
     @GetMapping("/username")
-    public Object getUserByUsername(@RequestParam(name = "search", defaultValue = "") String search)
-      return new ResponseEntity<>(service.getUserByUsername(search), HttpStatus.OK);
-    )
+    public Object getUserByUsername(@RequestParam(name = "search", defaultValue = "") String search) {
+        return new ResponseEntity<>(service.getUsersByUsername(search), HttpStatus.OK);
+    }
 
     //create new user
     @PostMapping("/new")
@@ -40,15 +40,15 @@ public class UserController {
 
     //edit acc
     @PutMapping("/update/{userID}")
-    public Object updateUser(@PathVariable int userID, @Request User user) {
+    public Object updateUser(@PathVariable int userID, @RequestBody User user) {
     service.updateUser(userID, user);
     return new ResponseEntity<>(service.getUserByID(userID), HttpStatus.CREATED);
     }
 
     //DELETE acc
     @DeleteMapping("/delete/{userID}")
-    public Object deleteUserByID(userID); {
-    service.deleteUserByID(userID);
+    public Object deleteUserByID(@PathVariable int userID) {
+    service.deleteUserById(userID);
     return new ResponseEntity<>(service.getAllUsers(), HttpStatus.OK);
  }
 }
