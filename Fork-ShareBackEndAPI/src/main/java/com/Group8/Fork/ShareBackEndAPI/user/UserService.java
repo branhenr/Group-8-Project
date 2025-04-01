@@ -16,8 +16,8 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User getUserbyID (int userID) {
-        return userRepository.findByID(userID).orElse(null);
+    public User getUserByID(int userID) {
+        return userRepository.findById(userID).orElse(null);
     }
 
     public List<User> getUsersByUsername(String username) {
@@ -32,7 +32,7 @@ public class UserService {
 //update user acc
     public void updateUser(int userID, User user) {
         User existing = getUserByID(userID);
-        existing.setUserId(user.getUserID());
+        existing.setUserID(user.getUserID());
         existing.setUsername(user.getUsername());
         existing.setEmail(user.getEmail());
         existing.setPassword(user.getPassword());
@@ -46,5 +46,3 @@ public class UserService {
     }
 }
 
-
-}
