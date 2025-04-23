@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 
@@ -44,29 +45,42 @@ public class ChefController {
     @GetMapping("/createForm")
     public String showCreateForm(Model model){
         Chef chef = new Chef();
-
+        model.addAttribute("chef", chef);
+        model.addAttribute("title", "Create New Chef");
+        return "chef-create";
     }
 
 
     //creating a new chef
     @PostMapping("/new")
-    public Object addNewChef(@RequestBody Chef chef) {
+    public Object addNewChef(Chef chef, Model model) {
         service.addNewChef(chef);
-        return new ResponseEntity<>(service.getAllChefs(), HttpStatus.CREATED);
+        //return new ResponseEntity<>(service.getAllChefs(), HttpStatus.CREATED);
+        return "redirect:/chefs/all";
+    }
+
+    //show update form
+    @GetMapping("/update/{chefId}")
+    public Object showUpdateForm(@PathVariable int chefId, Model model){
+        model.addAttribute("chef", service.getChefById(chefId));
+        model.addAttribute("title", "Update Chef #: " + chefId);
+        return "chef/chef-update";
     }
 
     //updating an existing chef
-    @PutMapping("/update/{chefId}")
-    public Object updateChef(@PathVariable int chefId, @RequestBody Chef chef){
+    @PostMapping("/update/{chefId}")
+    public Object updateChef(@PathVariable int chefId, Chef chef ){
         service.updateChef(chefId, chef);
-        return new ResponseEntity<>(service.getChefById(chefId), HttpStatus.CREATED);
+        //return new ResponseEntity<>(service.getChefById(chefId), HttpStatus.CREATED);
+        return "redirect:/chefs/" + chefId;
     }
 
     //delete a chef
     @DeleteMapping("/delete/{chefId}")
     public Object deleteChefById(@PathVariable int chefId){
         service.deleteChefById(chefId);
-        return new ResponseEntity<>(service.getAllChefs(), HttpStatus.OK);
+        //return new ResponseEntity<>(service.getAllChefs(), HttpStatus.OK);
+        return "redirect:/chefs/all";
     }
 
 }

@@ -31,13 +31,7 @@ public class ChefService {
 
     //updating a chef
     public void updateChef(int chefId, Chef chef){
-        Chef existing = getChefById(chefId);
-        existing.setChefId(chef.getChefId());
-        existing.setUsername(chef.getUsername());
-        existing.setEmail(chef.getEmail());
-        existing.setPassword(chef.getPassword());
-
-        chefRepository.save(existing);
+        chefRepository.save(chef);
     }
 
     //deleting a chef
