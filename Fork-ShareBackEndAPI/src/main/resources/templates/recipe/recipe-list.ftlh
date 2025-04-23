@@ -14,6 +14,48 @@
 
 <body>
 
+<!-- Title of website -->
+<header class="text-center p-3">
+    <h1>Fork and Share</h1>
+</header>
+<!-- End of title of website -->
+
+<!-- Beginning of navbar -->
+<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #414b3b;">
+    <a class="navbar-brand" href="index.html">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="recipies.html">Recipes </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Log out</a>
+            </li>
+        </ul>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search ">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+<!-- End of Navbar -->
+
+<h1>List of Recipes</h1>
+
+<#list recipeList as recipe>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">${recipe.name}</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">${recipe.diet}</h6>
+        <p class="card-text">${recipe.description}</p>
+        <a href="#" class="card-link">View</a>
+    </div>
+</div>
+</#list>
+
 </body>
 
 </html>

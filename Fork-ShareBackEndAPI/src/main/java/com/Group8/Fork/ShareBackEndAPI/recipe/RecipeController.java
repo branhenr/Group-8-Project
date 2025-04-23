@@ -5,9 +5,12 @@ import com.Group8.Fork.ShareBackEndAPI.chef.ChefService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.ui.Model;
 
-@RestController
+//@RestController
+@Controller
 @RequestMapping("/recipes")
 public class RecipeController {
 
@@ -19,14 +22,20 @@ public class RecipeController {
 
     //return all recipes
     @GetMapping("/all")
-    public Object getAllRecipes(){
-        return new ResponseEntity<>(recipeService.getAllRecipes(), HttpStatus.OK);
+    public Object getAllRecipes(Model model){
+        //return new ResponseEntity<>(recipeService.getAllRecipes(), HttpStatus.OK);
+        model.addAttribute("recipeList", recipeService.getAllRecipes());
+        model.addAttribute("title", "All recipes");
+        return "recipe/recipe-list";
     }
 
     //return a single recipe
     @GetMapping("/{recipeId}")
-        public Object getOneRecipe(@PathVariable int recipeId){
-            return new ResponseEntity<>(recipeService.getRecipeById(recipeId), HttpStatus.OK);
+        public Object getOneRecipe(@PathVariable int recipeId, Model model){
+            //return new ResponseEntity<>(recipeService.getRecipeById(recipeId), HttpStatus.OK);
+            model.addAttribute("recipe", recipeService.getRecipeById(recipeId));
+            model.addAttribute("title", "Recipe #: " + recipeId);
+            return "recipe/recipe-details";
         }
 
 
@@ -36,11 +45,23 @@ public class RecipeController {
         return new ResponseEntity<>(recipeService.getRecipesByDiet(diet), HttpStatus.OK);
     }
 
+    //show form to create a new recipe
+    @GetMapping("/createForm")
+    public String showCreateForm(Model model){
+        Recipe recipe = new Recipe();
+        model.addAttribute("recipe", recipe);
+        model.addAttribute("title", "Create New Recipe");
+        return "recipe/recipe-create";
+    }
+
     //creating a new recipes
     @PostMapping("/new")
-    public Object addNewRecipe(@RequestBody Recipe recipe){
+    public Object addNewRecipe(@PathVariable int recipeId,Recipe recipe){
+        if (recipe.getChef().getChefId() == -1)
+            recipe.setChef(null);
         recipeService.addNewRecipe(recipe);
-        return new ResponseEntity<>(recipeService.getAllRecipes(), HttpStatus.CREATED);
+        //return new ResponseEntity<>(recipeService.getAllRecipes(), HttpStatus.CREATED);
+        return"redirect:/recipes/all";
     }
 
     //update an existing recipe
@@ -54,6 +75,7 @@ public class RecipeController {
     @DeleteMapping("/delete/{recipeId}")
         public Object deleteRecipeById(@PathVariable int recipeId){
             recipeService.deleteRecipeById(recipeId);
-            return new ResponseEntity<>(recipeService.getAllRecipes(), HttpStatus.OK);
+            //return new ResponseEntity<>(recipeService.getAllRecipes(), HttpStatus.OK);
+            return "redirect:/recipes/all";
         }
 }
