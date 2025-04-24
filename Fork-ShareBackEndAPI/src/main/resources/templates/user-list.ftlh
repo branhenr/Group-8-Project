@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+
+<body>
+
+<!-- title -->
+<header class="text-center p-3">
+    <h1>Fork and Share</h1>
+</header>
+
+<!-- Nav bar -->
+<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #414b3b;">
+    <a class="navbar-brand" href="/">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/recipes">Recipes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Log out</a>
+            </li>
+        </ul>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search users">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+<!-- List of Users -->
+    <h1>List of Users</h1>
+
+
+    <#list userList as user>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">${user.username}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">${user.email}</h6>
+                <p class="card-text">User ID: ${user.userID}</p>
+               <a href="/userprofile.html" class="card-link" target="_blank">View</a>
+            </div>
+        </div>
+    </#list>
+
+
+</body>
+</html>
+
+
+
+

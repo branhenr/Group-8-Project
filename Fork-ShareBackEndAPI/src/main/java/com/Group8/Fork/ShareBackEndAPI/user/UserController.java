@@ -1,13 +1,19 @@
 package com.Group8.Fork.ShareBackEndAPI.user;
 
+
+import com.Group8.Fork.ShareBackEndAPI.chef.Chef;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.ui.Model;
 
 
-@RestController
+@Controller
 @RequestMapping("/users")
+
 public class UserController {
 
     @Autowired
@@ -15,15 +21,21 @@ public class UserController {
 
     //show all users
     @GetMapping("/all")
-    public Object getAllUsers(){
-        return new ResponseEntity<>(service.getAllUsers(), HttpStatus.OK);
+    public String getAllUsers(Model model) {
+        model.addAttribute("userList", service.getAllUsers());
+        model.addAttribute("title", "All Users");
+        return "user-list";
     }
+
 
     // show by userID
     @GetMapping("/{userID}")
-    public Object getOneUser(@PathVariable int userID) {
-        return new ResponseEntity<>(service.getUserByID(userID), HttpStatus.OK);
+    public String getOneUser(@PathVariable int userID, Model model) {
+        model.addAttribute("user", service.getUserByID(userID));
+        model.addAttribute("title", "User Profile #" + userID);
+        return "user-details";
     }
+
 
     //show by username
     @GetMapping("/username")
@@ -31,46 +43,53 @@ public class UserController {
         return new ResponseEntity<>(service.getUsersByUsername(search), HttpStatus.OK);
     }
 
-    //create new user
-    @PostMapping("/new")
-    public Object addNewUser(@RequestBody User user){
-    service.addNewUser(user);
-    return new ResponseEntity<>(service.getAllUsers(), HttpStatus.CREATED);
+
+    // Show form to create a new user
+    @GetMapping("/createForm")
+    public String showCreateUserForm(Model model) {
+        model.addAttribute("user", new User());
+        model.addAttribute("title", "Create New User");
+        return "user-create";
     }
+
+    // create new user
+    @PostMapping("/new")
+    public Object addNewChef(User user, Model model) {
+        service.addNewUser(user);
+        return "redirect:/users/all";
+    }
+
 
     //edit acc
-    @PutMapping("/update/{userID}")
-    public Object updateUser(@PathVariable int userID, @RequestBody User user) {
-    service.updateUser(userID, user);
-    return new ResponseEntity<>(service.getUserByID(userID), HttpStatus.CREATED);
+        @GetMapping("/update/{userID}")
+        public String showUpdateForm ( @PathVariable int userID, Model model){
+            model.addAttribute("user", service.getUserByID(userID));
+            model.addAttribute("title", "Update User #" + userID);
+            return "user/user-update";
+        }
+
+        //DELETE acc
+        @GetMapping("/delete/{userID}")
+        public String deleteUser ( @PathVariable int userID){
+            service.deleteUserById(userID);
+            return "redirect:/users/all";
+        }
+
+
+        //save recipe
+        @PostMapping("/{userID}/save-recipe/{recipeId}")
+        public String saveRecipe ( @PathVariable int userID, @PathVariable int recipeId){
+            service.saveRecipeForUser(userID, recipeId);
+            return "redirect:/users/saved?userID=" + userID;
+        }
+
+        //unsave recipe // get matches html limits
+        @GetMapping("/{userID}/unsave-recipe/{recipeId}")
+        public String unsaveRecipe ( @PathVariable int userID, @PathVariable int recipeId){
+            service.unsaveRecipeForUser(userID, recipeId);
+            return "redirect:/users/saved?userID=" + userID;
+        }
+
+
+
     }
-
-    //DELETE acc
-    @DeleteMapping("/delete/{userID}")
-    public Object deleteUserByID(@PathVariable int userID) {
-    service.deleteUserById(userID);
-    return new ResponseEntity<>(service.getAllUsers(), HttpStatus.OK);
- }
-
- //save recipe
-    @PostMapping("/{userID}/save-recipe/{recipeId}")
-    public ResponseEntity<String> saveRecipe(@PathVariable int userID, @PathVariable int recipeId) {
-        service.saveRecipeForUser(userID, recipeId);
-        return new ResponseEntity<>(service.getSavedRecipes() ,HttpStatus.OK);
-    }
-
-    //unsave recipe
-    @DeleteMapping("/{userID}/unsave-recipe/{recipeId}")
-    public ResponseEntity<String> unsaveRecipe (@PathVariable int userID, @PathVariable int recipeId) {
-        service.unsaveRecipeForUser(userID, recipeId);
-        return new  ResponseEntity<>(HttpStatus.OK);
-    }
-
-    // view recipes
-    @GetMapping ("/saved")
-    public Object getSavedRecipes(@RequestParam(name = "userID") int userID) {
-        return new ResponseEntity<>(service.getSavedRecipes(userID), HttpStatus.OK);
-    }
-
-
-}
