@@ -21,17 +21,20 @@
 
 <!-- Beginning of navbar -->
 <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #414b3b;">
-    <a class="navbar-brand" href="index.html">Home</a>
+    <a class="navbar-brand" href="/home">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="recipies.html">Recipes </a>
+                <a class="nav-link" href="/chefs/all">Chefs</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/recipes/all">Recipes </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Log out</a>
+                <a class="nav-link" href="/chefs/createForm">Sign up</a>
             </li>
         </ul>
         <form class="form-inline">
@@ -58,10 +61,10 @@
 <!-- UI for chef to edit profile -->
 <ul class="nav justify-content-end">
     <li class="nav-item">
-        <button class="btn btn-outline-success my-2 my-sm-0">Edit Profile</button>
+        <a href="/chefs/update/${chefId}" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Edit Profile</a></li>
     </li>
     <li class="nav-item">
-        <a href="postrecipe.html" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Post</a></li>
+        <a href="/recipes/createForm" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Post</a></li>
     <li class="nav-item">
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

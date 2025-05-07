@@ -11,7 +11,6 @@
 
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
-
 <body>
 
 <!-- Title of website -->
@@ -32,7 +31,7 @@
                 <a class="nav-link" href="/chefs/all">Chefs</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/recipes/all">Recipes</a>
+                <a class="nav-link" href="/recipes/all">Recipes </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/chefs/createForm">Sign up</a>
@@ -46,19 +45,33 @@
 </nav>
 <!-- End of Navbar -->
 
-<!-- list of chefs -->
-<h1>List of Chefs</h1>
+<!-- Beginning of menu to Update -->
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card shadow-lg p-4" style="width: 350px;">
+        <h3 class="text-center">Update your Account</h3>
+        <form id="update-chef" action="/chefs/update/${chef.chefId}" method="post">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="username" id="username" name="username" value="${chef.username}">
+            </div>
 
-<#list chefList as chef>
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">${chef.username}</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">${chef.email}</h6>
-        <p class="card-text">${chef.password}</p>
-        <a href="/chefs/${chef.chefId}" class="card-link">View</a>
+            <div class = "form-group">
+                <label for = "email" >Email</label>
+                <input type="email" id="email" name="email" value="${chef.email}">
+            </div>
+
+            <div class = "form-group">
+                <label for = "password" > Password</label>
+                <input type = "password" id ="password" name = "password" value="${chef.password}">
+            </div>
+
+
+            <button type="submit" class="btn btn-primary btn-block"> Update </button>
+        </form>
+
     </div>
 </div>
-</#list>
+<!-- End of menu to Update -->
 
 </body>
 </html>

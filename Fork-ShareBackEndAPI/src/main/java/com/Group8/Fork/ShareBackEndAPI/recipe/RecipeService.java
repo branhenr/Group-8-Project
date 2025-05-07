@@ -45,4 +45,8 @@ public class RecipeService {
     public void deleteRecipeById(int recipeId){
         recipeRepository.deleteById(recipeId);
     }
+
+    public List<Recipe> getRecipesByChef(int chefId){
+        return recipeRepository.getRecipeByChefId(chefId);
+    }
 }

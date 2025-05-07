@@ -46,19 +46,46 @@
 </nav>
 <!-- End of Navbar -->
 
-<!-- list of chefs -->
-<h1>List of Chefs</h1>
+<!-- beginning of welcome page-->
 
-<#list chefList as chef>
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">${chef.username}</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">${chef.email}</h6>
-        <p class="card-text">${chef.password}</p>
-        <a href="/chefs/${chef.chefId}" class="card-link">View</a>
+<div class="container text-center">
+    <div class="row row-cols-2">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">New Chef?</h5>
+                    <p class="card-text">Click the button below to create a chef account</p>
+                    <a href="/chefs/createForm" class="btn btn-primary">Sign-Up</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">New User?</h5>
+                    <p class="card-text">Click the button below to create a User account </p>
+                    <a href="/users/createForm" class="btn btn-primary">Sign-Up</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Already a chef?</h5>
+                    <p class="card-text">Click the button below to login </p>
+                    <a href="/users/createForm" class="btn btn-primary">login</a>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
-</#list>
+
+
+<!-- end of welcome page-->
 
 </body>
+
 </html>

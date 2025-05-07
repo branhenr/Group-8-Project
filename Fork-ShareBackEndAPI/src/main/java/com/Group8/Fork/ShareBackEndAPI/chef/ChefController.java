@@ -64,7 +64,7 @@ public class ChefController {
     public Object showUpdateForm(@PathVariable int chefId, Model model){
         model.addAttribute("chef", service.getChefById(chefId));
         model.addAttribute("title", "Update Chef #: " + chefId);
-        return "chef/chef-update";
+        return "chef-update";
     }
 
     //updating an existing chef

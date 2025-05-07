@@ -34,6 +34,10 @@ public class ChefService {
         chefRepository.save(chef);
     }
 
+    public void updateChef(Chef chef){
+        chefRepository.save(chef);
+    }
+
     //deleting a chef
     public void deleteChefById(int chefId){
         chefRepository.deleteById(chefId);
