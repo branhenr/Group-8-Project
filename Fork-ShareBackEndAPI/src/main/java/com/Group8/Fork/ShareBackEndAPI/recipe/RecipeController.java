@@ -56,9 +56,9 @@ public class RecipeController {
 
     //creating a new recipes
     @PostMapping("/new")
-    public Object addNewRecipe(@PathVariable int recipeId,Recipe recipe){
-        if (recipe.getChef().getChefId() == -1)
-            recipe.setChef(null);
+    public Object addNewRecipe(Recipe recipe, Model model){
+       // if (recipe.getChef().getChefId() == -1)
+         //   recipe.setChef(null);
         recipeService.addNewRecipe(recipe);
         //return new ResponseEntity<>(recipeService.getAllRecipes(), HttpStatus.CREATED);
         return"redirect:/recipes/all";

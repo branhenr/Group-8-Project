@@ -43,6 +43,34 @@
 </nav>
 <!-- End of Navbar -->
 
+<h3>Details of Recipe</h3>
+<div class="container">
+    <form id="new-recipe" action="/recipes/new" method="post">
+        <div class = "form-group">
+            <label for = "name" > name</label>
+            <input type = "text" id ="name" name = "name" class = "form-control">
+        </div>
+
+
+        <div class = "form-group">
+            <label for = "prepTime" > Preparation Time</label>
+            <input type = "number" id ="prepTime" name = "prepTime" class = "form-control">
+        </div>
+
+
+        <div class = "form-group">
+            <label for = "description" > description</label>
+            <input type = "text" id ="description" name = "description" class = "form-control">
+        </div>
+
+
+        <div class = "form-group">
+            <label for = "diet" > diet</label>
+            <input type = "text" id ="diet" name = "diet" class = "form-control">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block"> Post </button>
+    </form>
+</div>
 
 </body>
 
