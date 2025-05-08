@@ -18,6 +18,10 @@ public class Recipe {
 
     private String description;
 
+    private String ingredients;
+
+    private String instructions;
+
     private String diet;
 
     @ManyToOne
@@ -25,19 +29,23 @@ public class Recipe {
     private Chef chef;
 
 
-    public Recipe(int recipeId, String name, int prepTime, String description, String diet, Chef chef){
+    public Recipe(int recipeId, String name, int prepTime, String description, String ingredients, String instructions, String diet, Chef chef){
         this.recipeId = recipeId;
         this.name = name;
         this.prepTime = prepTime;
         this.description = description;
+        this.ingredients = ingredients;
+        this.instructions = instructions;
         this.diet = diet;
         this.chef = chef;
     }
 
-    public Recipe(String name, int prepTime, String description, String diet, Chef chef){
+    public Recipe(String name, int prepTime, String description, String ingredients, String instructions, String diet, Chef chef){
         this.name = name;
         this.prepTime = prepTime;
         this.description = description;
+        this.ingredients = ingredients;
+        this. instructions = instructions;
         this.diet = diet;
         this.chef = chef;
     }
@@ -63,6 +71,14 @@ public class Recipe {
         return description;
     }
 
+    public String getIngredients() {
+        return ingredients;
+    }
+
+    public String getInstructions() {
+        return instructions;
+    }
+
     public String getDiet(){
         return diet;
     }
@@ -86,6 +102,14 @@ public class Recipe {
 
     public void setDescription(String description){
         this.description = description;
+    }
+
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
     }
 
     public void setDiet(String diet){

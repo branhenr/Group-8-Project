@@ -76,7 +76,7 @@ public class ChefController {
     }
 
     //delete a chef
-    @DeleteMapping("/delete/{chefId}")
+    @GetMapping("/delete/{chefId}")
     public Object deleteChefById(@PathVariable int chefId){
         service.deleteChefById(chefId);
         //return new ResponseEntity<>(service.getAllChefs(), HttpStatus.OK);

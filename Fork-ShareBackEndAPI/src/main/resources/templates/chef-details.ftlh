@@ -49,9 +49,8 @@
 <div class="row">
     <div class="col"><img src="/images/chef.avif" class="profile-pic" alt="chef">
         <p class="username">@${chef.username} <br> Chef|Experience|Specialty </p> <br>
-        <p class="follower"> 162 followers </p>
     </div>
-    <div class="col"><p class="chef-name">Gordon Ramsey</p></div>
+    <div class="col"><p class="chef-name">${chef.username}</p></div>
     <div class="col"> </div>
 </div>
 
@@ -60,23 +59,19 @@
 
 <!-- UI for chef to edit profile -->
 <ul class="nav justify-content-end">
-    <li class="nav-item">
-        <a href="/chefs/update/${chefId}" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Edit Profile</a></li>
+    <li class="nav-item dropdown">
+        <a aria-expanded="false" class="btn btn-outline-success my-2 my-sm-0" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+           href="#" role="button">Edit Profile</a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/chefs/update/${chefId}">Update Information</a></li>
+            <li><a class="dropdown-item" href="/chefs/delete/${chefId}">Delete Account</a></li>
+        </ul>
     </li>
+
     <li class="nav-item">
-        <a href="/recipes/createForm" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Post</a></li>
-    <li class="nav-item">
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                Filters
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Food Type</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-        </div>
+        <a href="/recipes/createForm" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Post</a>
     </li>
+
     <li class="nav-item">
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

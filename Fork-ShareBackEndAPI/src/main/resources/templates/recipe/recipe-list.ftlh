@@ -54,7 +54,7 @@
         <h5 class="card-title">${recipe.name}</h5>
         <h6 class="card-subtitle mb-2 text-body-secondary">${recipe.diet}</h6>
         <p class="card-text">${recipe.description}</p>
-        <a href="#" class="card-link">View</a>
+        <a href="/recipes/${recipe.recipeId}" class="card-link">View</a>
     </div>
 </div>
 </#list>
