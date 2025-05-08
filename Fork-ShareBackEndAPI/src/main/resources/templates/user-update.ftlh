@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>User List</title>
+    <title>Update Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -10,16 +10,14 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
-
-
 <body>
 
-<!-- title -->
+<!-- TITLE -->
 <header class="text-center p-3">
     <h1>Fork and Share</h1>
 </header>
 
-<!-- Beginning of navbar -->
+<!-- Navbar -->
 <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #414b3b;">
     <a class="navbar-brand" href="/home">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">
@@ -31,10 +29,10 @@
                 <a class="nav-link" href="/chefs/all">Chefs</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/recipes/all">Recipes </a>
+                <a class="nav-link" href="/recipes/all">Recipes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/chefs/createForm">Sign up</a>
+                <a class="nav-link" href="/users/createForm">Sign up</a>
             </li>
         </ul>
         <form class="form-inline">
@@ -43,27 +41,32 @@
         </form>
     </div>
 </nav>
-<!-- End of Navbar -->
 
-<!-- List of Users -->
-    <h1>List of Users</h1>
-
-
-    <#list userList as user>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">${user.username}</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">${user.email}</h6>
-                <p class="card-text">User ID: ${user.userID}</p>
-                <a href="/users/${user.userID}" class="card-link">View</a>
+<!-- Update form -->
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card shadow-lg p-4" style="width: 350px;">
+        <h3 class="text-center">Update Your Profile</h3>
+        <form id="update-user" action="/users/update/${user.userID}" method="post">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" class="form-control" value="${user.username}" required>
             </div>
-        </div>
-    </#list>
 
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" class="form-control" value="${user.email}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control" value="${user.password}" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Update</button>
+        </form>
+    </div>
+</div>
 
 </body>
 </html>
-
-
-
 

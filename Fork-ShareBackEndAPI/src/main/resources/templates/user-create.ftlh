@@ -25,6 +25,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
@@ -44,11 +45,14 @@
     </div>
 </nav>
 <!-- End of Navbar -->
+
+
 < !-- Create Acc container -- >
 <div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
     <div class="card shadow-lg p-4" style="width: 350px;">
 
         <h3 class="text-center">Create an Account</h3>
+
         <form action="/users/new" method="post">
             <div class="form-group">
                 <label for="username">Username</label>

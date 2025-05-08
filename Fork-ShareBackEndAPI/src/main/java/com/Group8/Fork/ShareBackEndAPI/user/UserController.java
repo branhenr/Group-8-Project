@@ -54,9 +54,10 @@ public class UserController {
 
     // create new user
     @PostMapping("/new")
-    public Object addNewChef(User user, Model model) {
+    public Object addNewUser(User user, Model model) {
         service.addNewUser(user);
-        return "redirect:/users/all";
+        return "redirect:/users/all"; // redirects to user-list.ftlh
+
     }
 
 
@@ -65,8 +66,15 @@ public class UserController {
         public String showUpdateForm ( @PathVariable int userID, Model model){
             model.addAttribute("user", service.getUserByID(userID));
             model.addAttribute("title", "Update User #" + userID);
-            return "user/user-update";
+            return "user-update";
         }
+
+    //updating an existing user
+    @PostMapping("/update/{userID}")
+    public Object updateUser(@PathVariable int userID, User user ){
+        service.updateUser(userID, user);
+        return "redirect:/users/" + userID;
+    }
 
         //DELETE acc
         @GetMapping("/delete/{userID}")

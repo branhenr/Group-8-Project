@@ -34,13 +34,7 @@ public class UserService {
 
 //update user acc
     public void updateUser(int userID, User user) {
-        User existing = getUserByID(userID);
-        existing.setUserID(user.getUserID());
-        existing.setUsername(user.getUsername());
-        existing.setEmail(user.getEmail());
-        existing.setPassword(user.getPassword());
-
-
+         userRepository.save(user);
         }
 
         // delete acc

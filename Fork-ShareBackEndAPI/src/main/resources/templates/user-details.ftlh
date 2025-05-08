@@ -20,6 +20,7 @@
 
 <!-- Beginning of navbar -->
 <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #414b3b;">
+
     <a class="navbar-brand" href="/home">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
@@ -45,20 +46,54 @@
 <!-- End of Navbar -->
 
 
-<!-- Edit profile -->
-<ul class="nav justify-content-end px-4">
+
+
+<!-- Edit profile and top section -->
+<div class="container mt-4">
+    <div class="text-center">
+        <h2 class="username">@${user.username}</h2>
+        <img src="/images/homechefavi.jpg" class="profile-pic" alt="User profile picture">
+        <p class="about-me">Food lover | Recipe Explorer | Home Chef</p>
+        <a href="/users/update/${user.userID}" class="btn btn-outline-success">Edit Profile</a>
+    </div>
+
+    <hr>
+
+<!-- UI for user to edit profile -->
+<ul class="nav justify-content-end">
     <li class="nav-item">
-        <a href="/users/update/${user.userID}" class="btn btn-outline-success my-2 my-sm-0">Edit Profile</a>
+        <a href="/users/update/${user.userID}" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Edit Profile</a>
     </li>
     <li class="nav-item mx-2">
-        <a href="/recipes" class="btn btn-outline-success my-2 my-sm-0">Browse Recipes</a>
+        <a href="/recipes/createForm" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Post</a>
+    </li>
+    <li class="nav-item">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Filters
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Food Type</a>
+                <a class="dropdown-item" href="#">Rating</a>
+                <a class="dropdown-item" href="#">Newest</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
     </li>
 </ul>
+
+<!-- End of UI for editing profile -->
+
 
 
 <!-- Saved Recipes -->
 <div class="card-deck m-4">
-    <#if user.savedRecipes?size > 0>
+    <#if user.savedRecipes?has_content>
         <#list user.savedRecipes as recipe>
             <div class="card">
                 <img class="card-img-top" src="${recipe.imageUrl}" alt="${recipe.title}">
