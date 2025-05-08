@@ -2,6 +2,7 @@ package com.Group8.Fork.ShareBackEndAPI.review;
 
 import com.Group8.Fork.ShareBackEndAPI.recipe.Recipe;
 import com.Group8.Fork.ShareBackEndAPI.chef.Chef;
+import com.Group8.Fork.ShareBackEndAPI.user.User;
 import jakarta.persistence.*;
 
 @Entity
@@ -20,21 +21,28 @@ public class Review {
     @JoinColumn(name = "chefId")
     private Chef chef;
 
+
     @ManyToOne
     @JoinColumn(name = "recipeId")
     private Recipe recipe;
 
-    public Review(int reviewId, Recipe recipe, Chef chef, int rating, String details){
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User user;
+
+    public Review(int reviewId, Recipe recipe, Chef chef, User user, int rating, String details){
         this.reviewId = reviewId;
         this.recipe = recipe;
         this.chef = chef;
+        this.user = user;
         this.rating = rating;
         this.details = details;
     }
 
-    public Review( Recipe recipe, Chef chef, int rating, String details){
+    public Review( Recipe recipe, Chef chef, User user, int rating, String details){
         this.recipe = recipe;
         this.chef = chef;
+        this.user = user;
         this.rating = rating;
         this.details = details;
     }
@@ -50,6 +58,10 @@ public class Review {
 
     public Chef getChef() {
         return chef;
+    }
+
+    public User getUser() {
+        return user;
     }
 
     public Recipe getRecipe() {
@@ -68,6 +80,9 @@ public class Review {
     public void setChef(Chef chef) {
         this.chef = chef;
     }
+
+    public void setUser(User user) { this.user = user; }
+
 
     public void setDetails(String details) {
         this.details = details;
