@@ -49,7 +49,9 @@
 <!-- Top header of recipe -->
 <strong><a href="chefprof.html" class="text-dark">@username </a></strong>
 
-<button class="btn btn-light btn-sm"> Save recipe </button>
+<form action="/users/${user.userID}/save-recipe/${recipe.recipeID}" method="post" style="display: inline;">
+    <button type="submit" class="btn btn-light btn-sm">Save recipe</button>
+</form>
 
 <!-- Top header of recipe -->
 

@@ -88,14 +88,14 @@ public class UserController {
         @PostMapping("/{userID}/save-recipe/{recipeId}")
         public String saveRecipe ( @PathVariable int userID, @PathVariable int recipeId){
             service.saveRecipeForUser(userID, recipeId);
-            return "redirect:/users/saved?userID=" + userID;
+            return "redirect:/users/" + userID;
         }
 
         //unsave recipe // get matches html limits
         @GetMapping("/{userID}/unsave-recipe/{recipeId}")
         public String unsaveRecipe ( @PathVariable int userID, @PathVariable int recipeId){
             service.unsaveRecipeForUser(userID, recipeId);
-            return "redirect:/users/saved?userID=" + userID;
+            return "redirect:/users/=" + userID;
         }
 
 
