@@ -46,34 +46,38 @@
 </nav>
 <!-- End of Navbar -->
 
-<h3>Details of Recipe</h3>
+<!-- start of update form -->
+
+<h3>Update details of Recipe</h3>
 <div class="container">
-    <form id="new-recipe" action="/recipes/new" method="post">
+    <form id="update-recipe" action="/recipes/update/${recipe.recipeId}" method="post">
         <div class = "form-group">
             <label for = "name" > name</label>
-            <input type = "text" id ="name" name = "name" class = "form-control">
+            <input type = "text" id ="name" name = "name" value="${recipe.name}" placeholder="Name" class = "form-control">
         </div>
 
 
         <div class = "form-group">
             <label for = "prepTime" > Preparation Time</label>
-            <input type = "number" id ="prepTime" name = "prepTime" class = "form-control">
+            <input type = "number" id ="prepTime" name = "prepTime" value="${recipe.prepTime}" placeholder="prepTime" class = "form-control">
         </div>
 
 
         <div class = "form-group">
             <label for = "description" > description</label>
-            <input type = "text" id ="description" name = "description" class = "form-control">
+            <input type = "text" id ="description" name = "description" value="${recipe.description}" placeholder="description" class = "form-control">
         </div>
 
 
         <div class = "form-group">
             <label for = "diet" > diet</label>
-            <input type = "text" id ="diet" name = "diet" class = "form-control">
+            <input type = "text" id ="diet" name = "diet" value="${recipe.diet}" placeholder="diet" class = "form-control">
         </div>
-        <button type="submit" class="btn btn-primary btn-block"> Post </button>
+        <button type="submit" class="btn btn-primary btn-block"> Update </button>
     </form>
 </div>
+
+<!-- End of update form -->
 
 </body>
 

@@ -64,11 +64,21 @@ public class RecipeController {
         return"redirect:/recipes/all";
     }
 
+    //update form for a recipe
+    @GetMapping("/update/{recipeId}")
+    public String showUpdateForm(@PathVariable int recipeId, Model model){
+        model.addAttribute("recipe", recipeService.getRecipeById(recipeId));
+        model.addAttribute("title", "Update Recipe");
+        return"recipe/recipe-update";
+    }
+
     //update an existing recipe
-    @PutMapping("/update/{recipeId}")
-    public Object updateRecipe(@PathVariable int recipeId, @RequestBody Recipe recipe){
+    @PostMapping("/update/{recipeId}")
+    public Object updateRecipe(@PathVariable int recipeId, Recipe recipe){
         recipeService.updateRecipe(recipeId, recipe);
-        return new ResponseEntity<>(recipeService.getRecipeById(recipeId), HttpStatus.CREATED);
+        //return new ResponseEntity<>(recipeService.getRecipeById(recipeId), HttpStatus.CREATED);
+        //return "redirect:/recipes/" + recipeId;
+        return "redirect:/recipes/all";
     }
 
     //delete an existing recipe

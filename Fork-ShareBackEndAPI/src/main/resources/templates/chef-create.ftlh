@@ -48,7 +48,7 @@
 <!-- Beginning of menu to sign up -->
 <div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
     <div class="card shadow-lg p-4" style="width: 350px;">
-        <h3 class="text-center">Create an Account</h3>
+        <h3 class="text-center">Create a Chef Account</h3>
         <form id="loginForm" action="/chefs/new" method="post">
             <div class="form-group">
                 <label for="username">Full Name</label>
