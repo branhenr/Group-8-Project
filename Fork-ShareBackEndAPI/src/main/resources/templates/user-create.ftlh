@@ -31,6 +31,9 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/chefs/all">Chefs</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/users/all">Users</a>
+            </li>
             <li class="nav-item active">
                 <a class="nav-link" href="/recipes/all">Recipes </a>
             </li>

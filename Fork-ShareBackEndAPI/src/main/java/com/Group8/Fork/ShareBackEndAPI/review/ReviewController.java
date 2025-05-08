@@ -4,6 +4,7 @@ import com.Group8.Fork.ShareBackEndAPI.recipe.Recipe;
 import com.Group8.Fork.ShareBackEndAPI.recipe.RecipeService;
 import com.Group8.Fork.ShareBackEndAPI.chef.Chef;
 import com.Group8.Fork.ShareBackEndAPI.chef.ChefService;
+import com.Group8.Fork.ShareBackEndAPI.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -22,6 +23,11 @@ public class ReviewController {
 
     @Autowired
     private  ChefService chefService;
+
+
+    @Autowired
+    private UserService userService;
+
 
     @GetMapping("/all")
 
