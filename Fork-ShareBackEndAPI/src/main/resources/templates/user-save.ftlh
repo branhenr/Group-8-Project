@@ -27,21 +27,16 @@
  </nav>
 
  <!-- Recipe Cards -->
- <div class="container mt-4 text-center">
+ <div class="container text-center">
      <div class="row">
          <#list recipeList as recipe>
              <div class="col-sm-4 mb-4">
-                 <div class="card shadow" style="width: 18rem;">
-                     <img src="${recipe.imageUrl!'/images/default.jpg'}" class="card-img-top" alt="${recipe.name}">
+                 <div class="card">
+                     <img class="card-img-top" src="/images/default.jpg" alt="${recipe.name}">
                      <div class="card-body">
                          <h5 class="card-title">${recipe.name}</h5>
-                         <p class="card-text">${recipe.description!''}</p>
-                     </div>
-                     <ul class="list-group list-group-flush">
-                         <li class="list-group-item">Diet: ${recipe.diet}</li>
-                         <li class="list-group-item">Prep Time: ${recipe.prepTime} mins</li>
-                     </ul>
-                     <div class="card-body">
+                         <p class="card-text">Prep Time: ${recipe.prepTime}</p>
+
                          <form action="/users/save-recipe" method="post">
                              <input type="hidden" name="recipeId" value="${recipe.recipeId}">
                              <div class="form-group">
@@ -60,6 +55,5 @@
          </#list>
      </div>
  </div>
-
  </body>
  </html>
