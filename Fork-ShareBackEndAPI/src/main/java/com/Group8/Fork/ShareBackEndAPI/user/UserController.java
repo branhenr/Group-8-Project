@@ -112,7 +112,7 @@ public class UserController {
     @PostMapping("/save-recipe")
     public String saveRecipeForUser(@RequestParam int userId, @RequestParam int recipeId) {
         service.saveRecipeForUser(userId, recipeId);
-        return "redirect:/users/" + userId;
+        return "redirect:/users/saveForm";
     }
 
 
