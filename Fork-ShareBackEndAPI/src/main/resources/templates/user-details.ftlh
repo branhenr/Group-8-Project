@@ -67,9 +67,7 @@
     <li class="nav-item">
         <a href="/users/update/${user.userID}" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Edit Profile</a>
     </li>
-    <li class="nav-item mx-2">
-        <a href="/recipes/createForm" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Post</a>
-    </li>
+
     <li class="nav-item">
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

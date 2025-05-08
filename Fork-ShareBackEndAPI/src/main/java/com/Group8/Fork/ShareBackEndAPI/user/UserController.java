@@ -2,6 +2,7 @@ package com.Group8.Fork.ShareBackEndAPI.user;
 
 
 import com.Group8.Fork.ShareBackEndAPI.chef.Chef;
+import com.Group8.Fork.ShareBackEndAPI.recipe.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,9 @@ public class UserController {
 
     @Autowired
     private UserService service;
+
+    @Autowired
+    private RecipeService recipeService;
 
     //show all users
     @GetMapping("/all")
@@ -98,6 +102,19 @@ public class UserController {
             return "redirect:/users/=" + userID;
         }
 
-
-
+    @GetMapping("/saveForm")
+    public String showSaveForm(Model model) {
+        model.addAttribute("recipeList", recipeService.getAllRecipes());
+        model.addAttribute("userList", service.getAllUsers());
+        return "user-save"; // this matches your .ftlh file name
     }
+
+    @PostMapping("/save-recipe")
+    public String saveRecipeForUser(@RequestParam int userId, @RequestParam int recipeId) {
+        service.saveRecipeForUser(userId, recipeId);
+        return "redirect:/users/" + userId;
+    }
+
+
+
+}

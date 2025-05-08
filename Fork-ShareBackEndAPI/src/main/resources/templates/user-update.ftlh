@@ -34,6 +34,9 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/recipes/all">Recipes</a>
             </li>
+             <li class="nav-item">
+                            <a class="nav-link" href="/users/saveForm">Save Recipes</a>
+                        </li>
             <li class="nav-item">
                 <a class="nav-link" href="/users/createForm">Sign up</a>
             </li>
