@@ -66,11 +66,31 @@
             <input type = "text" id ="description" name = "description" class = "form-control">
         </div>
 
+        <div class = "form-group">
+            <label for = "ingredients" > ingredients</label>
+            <input type = "text" id ="ingredients" name = "ingredients" class = "form-control">
+        </div>
+
+        <div class = "form-group">
+            <label for = "instructions" > instructions</label>
+            <input type = "text" id ="instructions" name = "instructions" class = "form-control">
+        </div>
+
 
         <div class = "form-group">
             <label for = "diet" > diet</label>
             <input type = "text" id ="diet" name = "diet" class = "form-control">
         </div>
+
+        <div class="form-group">
+            <label for="chef"> chef</label> <select id="chef" name="chef.chefId">
+                <option selected value="-1"> Select chef</option>
+                <#list chefList as chef>
+                <option value="${chef.chefId}">${chef.username}</option>
+                </#list>
+            </select>
+        </div>
+
         <button type="submit" class="btn btn-primary btn-block"> Post </button>
     </form>
 </div>

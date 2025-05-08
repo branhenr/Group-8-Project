@@ -42,4 +42,9 @@ public class ChefService {
     public void deleteChefById(int chefId){
         chefRepository.deleteById(chefId);
     }
+
+    public List<Chef> getChefs(){
+        List<Chef> allChefs = getAllChefs();
+        return allChefs;
+    }
 }

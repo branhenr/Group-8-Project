@@ -68,12 +68,29 @@
             <input type = "text" id ="description" name = "description" value="${recipe.description}" placeholder="description" class = "form-control">
         </div>
 
+        <div class = "form-group">
+            <label for = "ingredients" > ingredients</label>
+            <input type = "text" id ="ingredients" name = "ingredients" value="${recipe.ingredients}" placeholder="ingredients" class = "form-control">
+        </div>
+
+        <div class = "form-group">
+            <label for = "instructions" > instructions</label>
+            <input type = "text" id ="instructions" name = "instructions" value="${recipe.instructions}" placeholder="instructions" class = "form-control">
+        </div>
+
 
         <div class = "form-group">
             <label for = "diet" > diet</label>
             <input type = "text" id ="diet" name = "diet" value="${recipe.diet}" placeholder="diet" class = "form-control">
         </div>
+
+        <div class = "form-group">
+            <label for = "chef" > chef</label>
+            <input type = "text" id ="chef" name = "chef" value="${recipe.chef.chefId}" readonly placeholder="chef" class = "form-control">
+        </div>
+
         <button type="submit" class="btn btn-primary btn-block"> Update </button>
+
     </form>
 </div>
 

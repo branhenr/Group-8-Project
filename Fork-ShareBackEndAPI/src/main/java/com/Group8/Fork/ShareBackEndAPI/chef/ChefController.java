@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
+import com.Group8.Fork.ShareBackEndAPI.recipe.Recipe;
+import com.Group8.Fork.ShareBackEndAPI.recipe.RecipeService;
 
 
 //@RestController
@@ -16,6 +18,9 @@ public class ChefController {
 
     @Autowired
     private ChefService service;
+
+    @Autowired
+    private RecipeService recipeService;
 
     //return all chefs
     @GetMapping("/all")
@@ -31,6 +36,7 @@ public class ChefController {
     public Object getOneChef(@PathVariable int chefId, Model model){
         //return new ResponseEntity<>(service.getChefById(chefId), HttpStatus.OK);
         model.addAttribute("chef", service.getChefById(chefId));
+        model.addAttribute("chefRecipesList", recipeService.getRecipesByChef(chefId));
         model.addAttribute("title", "Chef #: " + chefId);
         return "chef-details";
     }
@@ -78,6 +84,8 @@ public class ChefController {
     //delete a chef
     @GetMapping("/delete/{chefId}")
     public Object deleteChefById(@PathVariable int chefId){
+        for (Recipe recipe : recipeService.getRecipesByChef(chefId))
+            recipeService.deleteRecipeById(recipe.getRecipeId());
         service.deleteChefById(chefId);
         //return new ResponseEntity<>(service.getAllChefs(), HttpStatus.OK);
         return "redirect:/chefs/all";

@@ -51,7 +51,7 @@
         <p class="username">@${chef.username} <br> Chef|Experience|Specialty </p> <br>
     </div>
     <div class="col"><p class="chef-name">${chef.username}</p></div>
-    <div class="col"> </div>
+    <div class="col"></div>
 </div>
 
 <hr width="100%" color="black" size="1">
@@ -60,7 +60,8 @@
 <!-- UI for chef to edit profile -->
 <ul class="nav justify-content-end">
     <li class="nav-item dropdown">
-        <a aria-expanded="false" class="btn btn-outline-success my-2 my-sm-0" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+        <a aria-expanded="false" class="btn btn-outline-success my-2 my-sm-0" class="nav-link dropdown-toggle"
+           data-bs-toggle="dropdown"
            href="#" role="button">Edit Profile</a>
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/chefs/update/${chefId}">Update Information</a></li>
@@ -83,38 +84,30 @@
 <!-- End of UI for editing profile -->
 
 <!-- Recipes for chef -->
-<div class="card-deck">
-    <div class="card">
-        <img class="card-img-top" src="/images/pizza.avif" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title"><a href = "pizza.html"> Pizza</a></h5>
-            <p class="card-text">Recipe description</p>
-            <p class="text-right">&#10084; 60 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat" viewBox="0 0 16 16">
-                <path d="M2.678 11.894a1 1 0 0 1 .287.801 11 11 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8 8 0 0 0 8 14c3.996 0 7-2.807 7-6s-3.004-6-7-6-7 2.808-7 6c0 1.468.617 2.83 1.678 3.894m-.493 3.905a22 22 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a10 10 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9 9 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105"/>
-            </svg> 22</p>
+<div class="container text-center">
+    <#list chefRecipesList as recipe>
+    <div class="col-sm-4">
+        <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">${recipe.name}</h5>
+                <p class="card-text">${recipe.description}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Diet: ${recipe.diet}</li>
+                <li class="list-group-item">Preparation Time: ${recipe.prepTime}</li>
+                <li class="list-group-item">A third item</li>
+            </ul>
+            <div class="card-body">
+                <a class="btn btn-danger" href="/recipes/delete/${recipe.recipeId}" role="button">Delete</a>
+                <a class="btn btn-outline-success" href="/recipes/update/${recipe.recipeId}" class="card-link">Edit</a>
+            </div>
         </div>
     </div>
-    <div class="card">
-        <img class="card-img-top" src="/images/salmon.avif" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Recipe description </p>
-            <p class="text-right">&#10084; 17 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat" viewBox="0 0 16 16">
-                <path d="M2.678 11.894a1 1 0 0 1 .287.801 11 11 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8 8 0 0 0 8 14c3.996 0 7-2.807 7-6s-3.004-6-7-6-7 2.808-7 6c0 1.468.617 2.83 1.678 3.894m-.493 3.905a22 22 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a10 10 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9 9 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105"/>
-            </svg> 10</p>
-        </div>
-    </div>
-    <div class="card">
-        <img class="card-img-top" src="/images/salad.avif" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Recipe description </p>
-            <p class="text-right">&#10084; 23 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat" viewBox="0 0 16 16">
-                <path d="M2.678 11.894a1 1 0 0 1 .287.801 11 11 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8 8 0 0 0 8 14c3.996 0 7-2.807 7-6s-3.004-6-7-6-7 2.808-7 6c0 1.468.617 2.83 1.678 3.894m-.493 3.905a22 22 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a10 10 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9 9 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105"/>
-            </svg> 2</p>
-        </div>
-    </div>
+</#list>
 </div>
+
+
 <!-- End of recipes for chef -->
 
 </body>

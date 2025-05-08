@@ -51,6 +51,7 @@ public class RecipeController {
         Recipe recipe = new Recipe();
         model.addAttribute("recipe", recipe);
         model.addAttribute("title", "Create New Recipe");
+        model.addAttribute("chefList", chefService.getChefs());
         return "recipe/recipe-create";
     }
 
@@ -68,6 +69,7 @@ public class RecipeController {
     @GetMapping("/update/{recipeId}")
     public String showUpdateForm(@PathVariable int recipeId, Model model){
         model.addAttribute("recipe", recipeService.getRecipeById(recipeId));
+        model.addAttribute("chefLIst", chefService.getChefs());
         model.addAttribute("title", "Update Recipe");
         return"recipe/recipe-update";
     }
@@ -82,7 +84,7 @@ public class RecipeController {
     }
 
     //delete an existing recipe
-    @DeleteMapping("/delete/{recipeId}")
+    @GetMapping("/delete/{recipeId}")
         public Object deleteRecipeById(@PathVariable int recipeId){
             recipeService.deleteRecipeById(recipeId);
             //return new ResponseEntity<>(recipeService.getAllRecipes(), HttpStatus.OK);
